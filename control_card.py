@@ -14,3 +14,10 @@ def control_card(x_b, T_nom, standard_deviation, n):
     plt.legend()
     plt.xlabel('Номер вибірки')
     plt.show()
+    for x in x_b:
+        if x > T_nom + 2 * standard_deviation / np.sqrt(n) or x < T_nom - 2 * standard_deviation / np.sqrt(n):
+            print("Результат вимірювання не відповідає умовам замвоника")
+            break
+        else:
+            print("Результат вимірювання  відповідає умовам замовника")
+

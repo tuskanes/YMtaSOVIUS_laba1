@@ -38,10 +38,11 @@ def discrete_distribution(arr):
     sample_variance = np.round(np.sum(np.power(unique_elements, 2) * frequency) / n - np.power(sample_average_value, 2), 5)
     print(f"D_b : {sample_variance}")
     standard_deviation_of_the_sample = np.sqrt(sample_variance)
-    print(f"sigma : {standard_deviation_of_the_sample} ")
+    print(f"σ : {standard_deviation_of_the_sample} ")
     coefficient_of_variation = round(standard_deviation_of_the_sample / sample_average_value *100, 2)
-    print(f"V : {coefficient_of_variation}")
-
+    print(f"V : {coefficient_of_variation} %")
+    r = np.max(unique_elements) - np.min(unique_elements)
+    print(f"R : {r}")
     return unique_elements ,frequency , sample_average_value
 
 

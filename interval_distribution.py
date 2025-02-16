@@ -25,7 +25,7 @@ def interval_sampling_distribution(arr):
     values, counts = np.unique(arr, return_counts=True)
     n = np.size(arr)
     k = round(np.sqrt(len(arr)))
-    h = round((np.max(arr)- np.min(arr)) / k, 3)
+    h = round((np.max(arr)- np.min(arr)) /( 5 *np.log10(n)), 6)
 
     arr.sort()
     intervals = np.array([round((arr[0] + i * h), 3) for i in range(k+1)])
