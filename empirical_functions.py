@@ -36,6 +36,10 @@ def empirical_distribution_function(x_i, n_data_discrete, intervals, n_data_inte
     first_x_value = x_values[0] - 0.5
     x = np.concatenate(([first_x_value], x_values, [last_x_value]))
     y = np.concatenate(([0], y_values, [1.0]))
+    # Стрілки
+    for i in range(1, len(x)):
+        plt.arrow(x[i - 1], y[i - 1], x[i] - x[i - 1], 0, head_width=0.015625, head_length=(x[i - 1] - x[i]) + 0.01,
+                  fc='blue', ec='blue')
 
     # Побудова графіка
     plt.step(x, y, where='post', label='F*(x)', color='darkblue')
@@ -57,8 +61,8 @@ def empirical_distribution_function(x_i, n_data_discrete, intervals, n_data_inte
             sum_for_intervals += n_data_intervals[i - 1]
             y_values_for_interval.append(sum_for_intervals / n)
     table_print_interval(intervals, y_values_for_interval)
-    plt.plot(intervals, y_values_for_interval,linestyle='--',)
-    plt.scatter(intervals, y_values_for_interval)
+    plt.plot(intervals, y_values_for_interval,linestyle='--', color = "brown")
+    plt.scatter(intervals, y_values_for_interval, color = "brown")
     plt.show()
 
 
