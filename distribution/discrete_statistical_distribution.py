@@ -17,8 +17,9 @@ def discrete_distribution(arr):
 
     for element in result:
         table.add_row([element["element"], element["frequency"], element["relative frequency"]])
-    plot_dsd(unique_elements, relative_frequency)
     print(table)
+    plot_dsd(unique_elements, relative_frequency)
+    table.clear_rows()
 
 
     sample_average_value =  round(np.sum(unique_elements * frequency) / n, 3)

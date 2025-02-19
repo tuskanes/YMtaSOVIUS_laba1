@@ -47,6 +47,7 @@ def empirical_distribution_function(x_i, n_data_discrete, intervals, n_data_inte
         else:
             sum_for_intervals += n_data_intervals[i - 1]
             y_values_for_interval.append(sum_for_intervals / n)
+    table_print_interval(intervals, y_values_for_interval)
     plot_empir(x, y, intervals, y_values_for_interval)
 
 

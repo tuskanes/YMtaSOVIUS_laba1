@@ -16,19 +16,22 @@ def table_print(values, counts, w, check_last_val):
         else:
             table.add_row([f"({values[i]}; {values[i+1]})", counts[i], w[i]], divider=True)
     print(table)
+    table.clear_rows()
 
 table = PrettyTable()
-
 def interval_sampling_distribution(arr):
-    check_last_val = True
     values, counts = np.unique(arr, return_counts=True)
-    n = np.size(arr)
-    k = round(np.sqrt(len(arr)))
-    h = round((np.max(arr)- np.min(arr)) /( 5 *np.log10(n)), 6)
+    check_last_val = True
+    n = len(arr)
+    k = round(np.sqrt(n))
+    h = round((np.max(arr) - np.min(arr)) / (5 * np.log10(n)), 6)
 
     arr.sort()
-    intervals = np.array([round((arr[0] + i * h), 3) for i in range(k+1)])
+    intervals = [round(arr[0] + i * h, 3) for i in range(k + 1)]
+
+    # Якщо останнє значення не охоплене, додаємо ще один інтервал
     if intervals[-1] < arr[-1]:
+        intervals.append(round(intervals[-1] + 0.5*h, 3))
         check_last_val = False
 
     n_data = np.array([])
