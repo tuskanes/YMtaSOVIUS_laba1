@@ -1,7 +1,6 @@
 import numpy as np
-import matplotlib.pyplot as plt
 from prettytable import PrettyTable
-
+from charting import plot_isd
 def check(x, num1, num2):
     return num1 < x < num2
 
@@ -61,13 +60,6 @@ def interval_sampling_distribution(arr):
         density.append(round(i / (n * h), 4))
 
     table_print(intervals, n_data, density, check_last_val)
-    bin_widths = np.diff(intervals)
-    plt.bar(intervals[:-1], density, width=bin_widths, align='edge' ,color='darkblue', edgecolor='black')
-
-    plt.title('Histogram')
-    plt.xlabel('$x_i$')
-    plt.ylabel('$w_i$h')
-    plt.grid(True)
-    plt.show()
+    plot_isd(intervals, density)
 
     return intervals, n_data, n, h

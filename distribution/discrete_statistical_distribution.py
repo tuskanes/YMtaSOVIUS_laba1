@@ -1,12 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from prettytable import PrettyTable
-from sympy import symbols
-from sympy.abc import sigma
-from sympy.printing.pretty import pretty
-from sympy import latex
-
-
+from charting import plot_dsd
 table = PrettyTable()
 table.field_names = ['value', 'frequency', 'relative frequency']
 
@@ -22,16 +17,9 @@ def discrete_distribution(arr):
 
     for element in result:
         table.add_row([element["element"], element["frequency"], element["relative frequency"]])
-    fig, ax = plt.subplots()
-
-    ax.plot(unique_elements, relative_frequency, color='darkblue')
-    ax.scatter(unique_elements, relative_frequency)
-    ax.set_title('Frequency polygon')
-    ax.set_xlabel('xi')
-    ax.set_ylabel('w')
+    plot_dsd(unique_elements, relative_frequency)
     print(table)
-    plt.grid(True)
-    plt.show()
+
 
     sample_average_value =  round(np.sum(unique_elements * frequency) / n, 3)
     print(f"x_B : {sample_average_value}")

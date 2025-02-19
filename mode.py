@@ -1,23 +1,8 @@
-
 import numpy as np
-
 import statistics
 
 def mode_dsd(arr):
     reversed_arr = arr[::-1]
-  # values, counts = np.unique(arr, return_counts=True)
-  # max_vals = []
-  # max_one_val = max(counts)
-  # indeces = np.where(counts == max_one_val)[0]
-  #
-  # for i in indeces:
-  #     max_vals.append(values[i])
-  #
-  # Mo = 0
-  # for i in max_vals:
-  #     Mo += i
-  # Mo /= len(max_vals)
-
     Mo1 = statistics.mode(arr)
     Mo2 = statistics.mode(reversed_arr)
     if Mo1 == Mo2:

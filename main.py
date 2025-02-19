@@ -2,9 +2,9 @@ from prettytable import PrettyTable
 from mode import *
 from data import *
 from control_card import control_card
-from discrete_statistical_distribution import discrete_distribution
-from interval_distribution import interval_sampling_distribution
-from empirical_functions import empirical_distribution_function
+from distribution.discrete_statistical_distribution import discrete_distribution
+from distribution.interval_distribution import interval_sampling_distribution
+from distribution.empirical_functions import empirical_distribution_function
 
 datas = [A_arr, B_arr, C_arr, D_arr, E_arr]
 x_b = []
@@ -27,10 +27,10 @@ for data in datas:
 
     mode_isd(intervals, n_data_intervals, h)
     median_isd(y_values_for_interval, intervals, h)
+    print("####################################################")
 
 
 T_nom = 50
 standard_deviation = 2.5
 n = 75
-print(x_b)
 control_card(x_b, T_nom, standard_deviation, n)

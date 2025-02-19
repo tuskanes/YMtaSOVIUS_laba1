@@ -1,7 +1,5 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from scipy.ndimage import label
-
 
 def control_card(x_b, T_nom, standard_deviation, n):
 
